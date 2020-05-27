@@ -1,5 +1,8 @@
 # Simple Python Factory pattern
 
+![PyPI package](https://github.com/mammo0/py-simple-factory-pattern/workflows/PyPI%20package/badge.svg)
+[![PyPI version](https://badge.fury.io/py/simple-factory-pattern.svg)](https://badge.fury.io/py/simple-factory-pattern)
+
 This module provides a simple way to prevent the direct creation of an instance of a class. Instead a `classmethod` of this class can be used.
 
 
