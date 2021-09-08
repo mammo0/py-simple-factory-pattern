@@ -7,5 +7,8 @@ from .factorypattern_meta import _FactoryPatternMeta, _FactoryException
 __all__ = ["FactoryPatternMeta", "FactoryException"]
 
 
-FactoryPatternMeta = _FactoryPatternMeta
+class FactoryPatternMeta(_FactoryPatternMeta):
+    pass
+
+
 FactoryException = _FactoryException
