@@ -36,7 +36,7 @@ class _FactoryPatternMeta(type):
             raise _FactoryException(cls)
 
         # this method must be in the class that uses this meta class
-        func: Callable[..., Any] = getattr(cls, name, None)
+        func: Optional[Callable[..., Any]] = getattr(cls, name, None)
         # and the hash must be in the classmethods list
         if hash(func) not in cls.__classmethods:
             # if not, the class was instantiated from outside of the class
@@ -51,6 +51,6 @@ class _FactoryException(Exception):
     def __init__(self, factory_cls: type) -> None:
         # check if the provided class uses the factory pattern meta class
         if not issubclass(type(factory_cls), _FactoryPatternMeta):
-            raise ValueError("The class '%s' must have 'FactoryPatternMeta' as its meta class!" % factory_cls.__name__)
+            raise ValueError(f"The class '{factory_cls.__name__}' must have 'FactoryPatternMeta' as its meta class!")
 
-        super(_FactoryException, self).__init__("The class '%s' can't be instantiated directly!" % factory_cls.__name__)
+        super().__init__(f"The class '{factory_cls.__name__}' can't be instantiated directly!")
